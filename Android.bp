@@ -37,35 +37,6 @@ license {
     ],
 }
 
-rust_defaults {
-    name: "futures-sink_test_defaults",
-    crate_name: "futures_sink",
-    srcs: ["src/lib.rs"],
-    cargo_env_compat: true,
-    cargo_pkg_version: "0.3.17",
-    test_suites: ["general-tests"],
-    auto_gen_config: true,
-    edition: "2018",
-    features: [
-        "alloc",
-        "default",
-        "std",
-    ],
-}
-
-rust_test_host {
-    name: "futures-sink_host_test_src_lib",
-    defaults: ["futures-sink_test_defaults"],
-    test_options: {
-        unit_test: true,
-    },
-}
-
-rust_test {
-    name: "futures-sink_device_test_src_lib",
-    defaults: ["futures-sink_test_defaults"],
-}
-
 rust_library {
     name: "libfutures_sink",
     host_supported: true,
@@ -81,6 +52,7 @@ rust_library {
     ],
     apex_available: [
         "//apex_available:platform",
+        "com.android.bluetooth",
         "com.android.resolv",
         "com.android.virt",
     ],
